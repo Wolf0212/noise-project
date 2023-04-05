@@ -7,7 +7,6 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./routes/Home";
 import Artworks from "./routes/Artworks";
 import About from "./routes/About";
-import Artwork from "./components/Artwork";
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -15,11 +14,9 @@ const AnimatedRoute = () => {
     <AnimatePresence mode="wait">
       <Routes location={location}>
         <Route element={<App />} path="/" key={location.pathname}>
-          <Route index element={<Home />} key={location.pathname}/>
-          <Route element={<Artworks />} path="/artworks/*" key={"/artworks"}>
-            
-          </Route>
-          <Route element={<About />} path="/about" key={location.pathname}/>
+          <Route index element={<Home />} key={location.pathname} />
+          <Route element={<Artworks />} path="/artworks/*" key={"artworks"} />
+          <Route element={<About />} path="/about" key={location.pathname} />
         </Route>
       </Routes>
     </AnimatePresence>

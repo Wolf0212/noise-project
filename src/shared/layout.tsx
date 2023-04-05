@@ -10,7 +10,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     <motion.main
       initial={{ opacity: 0, x: -20, y: 0 }}
       animate={{ opacity: 1, x: 0, y: 0 }}
-      exit={{ opacity: 0, x: 200, y: 0 }}
+      exit={{ opacity: 0, x: 20, y: 0 }}
       transition={{ duration: 0.4 }}
       className="grow"
     >
