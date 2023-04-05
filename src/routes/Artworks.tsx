@@ -15,8 +15,9 @@ const Artworks: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if(location.pathname === "/artworks")
     navigate("song");
-  }, []);
+  }, [location.pathname]);
 
   return (
     <Layout>
