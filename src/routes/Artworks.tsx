@@ -1,11 +1,23 @@
-import React from "react";
-import Layout from "../shared/layout";
-import { Link, Route, Routes, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import Layout from "../shared/Layout";
+import {
+  Link,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import Artwork from "../components/Artwork";
 import { AnimatePresence } from "framer-motion";
 
 const Artworks: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("song");
+  }, []);
+
   return (
     <Layout>
       <div className="flex w-full h-full">

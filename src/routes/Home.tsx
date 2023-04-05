@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../shared/layout";
+import Layout from "../shared/Layout";
 
 const Home: React.FC = () => {
   return (

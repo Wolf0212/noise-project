@@ -10,13 +10,18 @@ import About from "./routes/About";
 
 const AnimatedRoute = () => {
   const location = useLocation();
+
+  const getPathKey = (path: string, level = 1) => {
+    return path.split("/").splice(1, level).join("/");
+  };
+
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location}>
-        <Route element={<App />} path="/" key={location.pathname}>
-          <Route index element={<Home />} key={location.pathname} />
-          <Route element={<Artworks />} path="/artworks/*" key={"artworks"} />
-          <Route element={<About />} path="/about" key={location.pathname} />
+      <Routes location={location} key={getPathKey(location.pathname)}>
+        <Route element={<App />} path="/">
+          <Route index element={<Home />} />
+          <Route element={<Artworks />} path="artworks/*" />
+          <Route element={<About />} path="about" />
         </Route>
       </Routes>
     </AnimatePresence>

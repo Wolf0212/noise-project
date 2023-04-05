@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   children?: React.ReactNode;
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
+  const { pathname } = useLocation();
   return (
     <motion.main
       initial={{ opacity: 0, x: -20, y: 0 }}
