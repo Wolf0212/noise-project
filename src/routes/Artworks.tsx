@@ -15,8 +15,10 @@ const Artworks: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(location.pathname === "/artworks")
-    navigate("song");
+    if (location.pathname === "/artworks")
+      setTimeout(() => {
+        navigate("song");
+      }, 400);
   }, [location.pathname]);
 
   return (
