@@ -3,7 +3,13 @@ import { useRef, useEffect } from "react";
 import * as Facemesh from "@mediapipe/face_mesh";
 import { drawConnectors } from "@mediapipe/drawing_utils/drawing_utils";
 import * as cam from "@mediapipe/camera_utils";
-import { MAX_NUM_FACE_MESH } from "../../constants/app.constant";
+import {
+  CAMERA_HEIGHT,
+  CAMERA_WIDTH,
+  MAX_NUM_FACE_MESH,
+  MIN_DETECTION_CONFIDENT,
+  MIN_TRACKING_CONFIDENT,
+} from "../../constants/app.constant";
 export const mediaPineFaceMesh = () => {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
@@ -73,8 +79,8 @@ export const mediaPineFaceMesh = () => {
 
     faceMesh.setOptions({
       maxNumFaces: MAX_NUM_FACE_MESH,
-      minDetectionConfidence: 0.5,
-      minTrackingConfidence: 0.5,
+      minDetectionConfidence: MIN_DETECTION_CONFIDENT,
+      minTrackingConfidence: MIN_TRACKING_CONFIDENT,
     });
 
     faceMesh.onResults(onResults);
@@ -88,8 +94,8 @@ export const mediaPineFaceMesh = () => {
           if (webcamRef.current == null) return;
           await faceMesh.send({ image: webcamRef.current["video"] });
         },
-        width: 640,
-        height: 480,
+        width: CAMERA_WIDTH,
+        height: CAMERA_HEIGHT,
       });
       camera.start();
     }
