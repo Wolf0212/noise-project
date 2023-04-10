@@ -5,3 +5,4 @@ export const CAMERA_HEIGHT: number = 480;
 export const MIN_DETECTION_CONFIDENT: number = 0.5;
 export const MIN_TRACKING_CONFIDENT: number = 0.5;
 export const HAND_MODEL_COMPLEXITY = 1;
+export const POSE_MODEL_COMPLEXITY = 1;

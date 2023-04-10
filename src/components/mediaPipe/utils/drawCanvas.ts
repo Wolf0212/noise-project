@@ -19,9 +19,7 @@ export const drawCanvas = (ctx: CanvasRenderingContext2D, results: Results) => {
   ctx.scale(-1, 1);
   ctx.translate(-width, 0);
   ctx.drawImage(results.image, 0, 0, width, height);
-  // Draw hand
   if (results.multiHandLandmarks) {
-    // Draw frames
     for (const landmarks of results.multiHandLandmarks) {
       drawConnectors(ctx, landmarks, HAND_CONNECTIONS, {
         color: "#00FF00",
@@ -33,14 +31,12 @@ export const drawCanvas = (ctx: CanvasRenderingContext2D, results: Results) => {
         radius: 2,
       });
     }
-    // Draw circle
     drawCircle(ctx, results.multiHandLandmarks);
   }
   ctx.restore();
 };
 
 /**
- * Draw a circle between the tip of the index finger and the tip of the forefinger
  * @param ctx
  * @param handLandmarks
  */

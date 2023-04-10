@@ -13,6 +13,7 @@
     "@mediapipe/drawing_utils": "^0.3.1675466124",
     "@mediapipe/face_mesh": "^0.4.1633559619",
     "@mediapipe/hands": "^0.4.1675469240",
+    "@mediapipe/pose": "^0.5.1675469404",
     "framer-motion": "^10.10.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
