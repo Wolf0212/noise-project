@@ -9,27 +9,28 @@ import {
   MIN_DETECTION_CONFIDENT,
   MIN_TRACKING_CONFIDENT,
 } from "../../constants/app.constant";
+import { drawCanvas } from "./utils/drawCanvas";
 export const mediaPineHandDetect = () => {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const resultsRef = useRef<Results>();
   let camera = null;
   const onResults = useCallback((results: Results) => {
+    if (canvasRef.current == null) return;
+    if (webcamRef.current == null) return;
+    const video = webcamRef.current["video"];
+    const videoWidth = video["videoWidth"];
+    const videoHeight = video["videoHeight"];
+    canvasRef.current["width"] = videoWidth;
+    canvasRef.current["height"] = videoHeight;
     resultsRef.current = results;
     if (canvasRef.current == null) return;
     const canvasElement = canvasRef.current as HTMLCanvasElement;
     const canvasCtx = canvasElement.getContext("2d")!;
+    drawCanvas(canvasCtx, results);
     console.log(results);
     if (canvasCtx == null) return;
   }, []);
-
-  if (canvasRef.current == null) return;
-  if (webcamRef.current == null) return;
-  const video = webcamRef.current["video"];
-  const videoWidth = video["videoWidth"];
-  const videoHeight = video["videoHeight"];
-  canvasRef.current["width"] = videoWidth;
-  canvasRef.current["height"] = videoHeight;
   useEffect(() => {
     const hands = new Hands({
       locateFile: (file) => {

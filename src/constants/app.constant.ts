@@ -1,4 +1,4 @@
-export const MAX_NUM_FACE_MESH: number = 1;
+export const MAX_NUM_FACE_MESH: number = 2;
 export const MAX_NUM_HAND_DETECT: number = 2;
 export const CAMERA_WIDTH: number = 640;
 export const CAMERA_HEIGHT: number = 480;
