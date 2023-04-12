@@ -10,9 +10,9 @@ const Artwork: React.FC = () => {
       animate={{ opacity: 1, x: 0, y: 0 }}
       exit={{ opacity: 0, x: 0, y: 20 }}
       transition={{ duration: 0.4 }}
-      className="w-full h-full flex items-center justify-center"
+      className="w-full h-full flex items-center justify-center overflow-hidden"
     >
-      <div className="text-6xl font-bold">Artwork {id}</div>
+      <img src={`/src/assets/artworks/${id}.png`} alt="artwork-placeholder" />
     </motion.div>
   );
 };
