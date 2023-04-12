@@ -5,9 +5,9 @@ import MashComponent from "../webcam/MashComponent";
 import WebCamComponent from "../webcam/WebcamComponent";
 
 const DetectorComponent: React.FC = () => {
-  // const [webcamRef, canvasRef] = mediaPineFaceMesh();
+  const [webcamRef, canvasRef] = mediaPineFaceMesh();
   // const [webcamRef, canvasRef] = mediaPineHandDetect();
-  const [webcamRef, canvasRef] = mediaPinePose();
+  // const [webcamRef, canvasRef] = mediaPinePose();
   return (
     <>
       <center>

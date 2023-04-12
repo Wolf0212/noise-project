@@ -4,7 +4,6 @@ import * as cam from "@mediapipe/camera_utils";
 import {
   CAMERA_HEIGHT,
   CAMERA_WIDTH,
-  MIN_DETECTION_CONFIDENT,
   POSE_MODEL_COMPLEXITY,
 } from "../../constants/app.constant";
 import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
@@ -74,7 +73,7 @@ export const mediaPinePose = () => {
     });
     pose.setOptions({
       selfieMode: true,
-      modelComplexity: 1,
+      modelComplexity: POSE_MODEL_COMPLEXITY,
       smoothLandmarks: true,
       enableSegmentation: true,
       smoothSegmentation: true,
